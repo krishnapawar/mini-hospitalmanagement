@@ -1,0 +1,74 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body id="body">
+<div class="container">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">WebSiteName</a>
+          </div>
+    <ul class="nav navbar-nav">
+      {% if user.is_authenticated %}
+      <li class="active"><a href="{% url 'admit' %}">Home</a></li>
+      </li>
+      <li><a href="{% url 'patientdetail' %}">Patients_Deteile</a></li>
+      {% endif %}
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    	{% if user.is_authenticated %}
+      <li><a href="{% url 'profile' %}"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+    	<li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    	{% else %}
+      <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Create Account</a></li>
+      <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+</div>
+
+
+</div>
+
+	<div class="container">
+    {% if messages %}
+    {% for msg in messages %}
+    <i><h3 class="alert alert-{{ msg.tags }}">{{ msg }}</h3></i>
+    {% endfor %}
+    {% endif %}
+
+
+		{% block content %}
+		{% endblock %}
+		
+	
+<!-- useing bootstrap 3.4.1 -->
+
+<link rel="stylesheet" type="text/css" href="{% static 'user/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'user/css/bootstrap-theme.min' %}">
+<script type="text/javascript" src="{% static 'user/js/bootstrap.min.js' %}"></script>
+
+</div>
+<div class="container">
+	<marquee><h1><i>This is hospital managemant system</i></h1></marquee>
+
+<div class="row">
+	<div class="col-md-12">
+			 <div id="futer">
+			 <br>
+       <hr>
+			<h4 align="center"> &copy <i>krishna_pawar</i> :-2019</h4>
+			 </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

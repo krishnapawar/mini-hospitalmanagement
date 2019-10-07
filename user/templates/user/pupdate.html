@@ -1,0 +1,30 @@
+{% extends 'user/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="row">
+	<div class="col-md-8">
+
+		<h2><i> Welcome mister {{ user.username }} sir</i></h2>
+		<hr>
+		<ul>
+			<li>Latest update</li>
+			<li>New informations</li>
+			<li>Help</li>
+			<li>About</li>
+		</ul>
+
+	</div>
+	<div class="col-md-offset-8">
+<div class="card">
+	<div class="card-body">
+	<form method="post" class="form-group" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{f|crispy}}
+		<input type="submit" name="Login" class="btn btn-primary" value="Update" >
+		<a class="btn btn-default" href="{% url 'patientdetail' %}"> Cancel</a>
+	</form>
+</div>
+</div>
+</div>
+</div> 
+{% endblock %}

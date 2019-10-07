@@ -1,0 +1,11 @@
+{% extends 'user/base.html' %}
+{% block content %}
+
+    <table class="table table-striped">
+    <tr><th><i>Id</i></th><th><i>Name</i></th><th><i>Gender</i></th><th><i>Birthday</i></th><th><i>Address</i></th><th><i>Disisses</i></th><th><i>Admit_date</i></th><th><i>Time</i></th><th><i>Fee</i></th><th><i>Receptionist</i></th><th style="text-align: center;"><i>Option</i></th></tr>
+    {% for q in p %}
+    <tr><td><i>{{ q.id }}</i></td><td><i>{{ q.name }}</i></td><td><i>{{q.gender}}</i></td><td><i>{{q.birthdate.date}}</i></td><td><i>{{q.address}}</i></td><td><i>{{q.diseases}}</i></td><td><i>{{q.admit_date.date}}</i></td><td><i>{{q.admit_date.time}}</i></td><td><i>{{q.admit_charge}}</i></td><td><i><b>{{q.user}}</b></i></td><td><a class="btn btn-outline btn-success" href="{% url 'pupdate' q.id %}">Update</a>&nbsp<a class="btn btn-danger" href="{% url 'pdelete' q.id %}">Delete</a></td></tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

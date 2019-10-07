@@ -1,0 +1,51 @@
+{% extends 'user/base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<div class="container">
+    <div class="row">
+ <div class="col-md-12">
+<h2  align="center"><i>Enter patients all details in this block</i></h2>
+<form method="post" class="form-group">
+    {% csrf_token %}
+<table align="center" class="table">
+    <tr >
+        <td><i>Name :-</i></td>
+        <td><input type="text" placeholder="enter your name here" name="name" class="form-control" required="name"></td>
+        <td><i>Gender :-</i></td><td><input type="radio" value="male" name="gender" required >male&nbsp<input type="radio" value="female" name="gender" required >female</td>
+    </tr>
+    <tr>
+        <td><i>Birthdate :-</i></td>
+            <td><input type="date" required="date" class="form-control" name="birthdate"> </td>
+        <td><i>Address :-</i></td>
+        <td><input type="text" required="address" class="form-control" placeholder="enter your address here" name="address" ></td>
+    </tr>
+        <tr> <td><i>Diseases :-</i></td>
+        <td><select name="diseases" class="form-control">
+            <option  value="Maleria">Maleria</option>
+            <option value="Typhoid" >Typhoid</option>
+            <option value="Migrain">Migrain</option>
+            <option  value="Jouindis">Jouindis</option>
+            <option value="Phyleria">Phyleria</option>
+            <option  value="Constipation">Constipation</option>
+            <option value="Kidney">KidneyStone</option>
+            <option value="Suger">Suger</option>
+        </select>
+        <td>Admit_charge :-</td><td><input type="checkbox" name="admit_charge" value="200/-"> 200/-</td></td>
+
+    </tr>
+	<tr><td colspan="4" align="center"><input class="btn btn-primary" type="submit" name="sub"><hr></td></tr>
+    </table>
+</form>
+<br>
+             </div>
+             </div>
+         </div>
+
+
+{% endblock %}
+
